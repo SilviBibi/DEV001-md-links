@@ -2,7 +2,7 @@
 
 ## Índice
 
-* [1. Sobre la librería e instalación:](#1- Sobre la libreria e Instalación)
+* [1. Sobre la librería e instalación:](#1-Sobre-la-librería-e-Instalación)
 * [2. Proceso de desarrollo:](#2-Proceso-de-desarrollo)
 * [3. Guía de uso:](#3-Guía-de-uso)
 * [4. Opciones:](#4-Opciones)
@@ -11,7 +11,7 @@
 ***
 
 
-## 1. Sobre la libreria e Instalación 💻
+## 1. Sobre la librería e Instalación 💻
 Es una libreria ejecutable con node.js, capaz de leer y analizar archivos en formato Markdown, para verificar los links que contengan y reportar algunas estadísticas. 
 
 #### Instalación
@@ -25,7 +25,7 @@ npm install SilviBibi/DEV001-md-links
 
 Como punto de partida para la ejecución de este proyecto, yo planifiqué mis tareas y objetivos, es por ello que hice un diagrama de flujo para plasmar lo que queria lograr y de que manera podía hacerlo.
 
-![Diagrama de Flujo](./images/DiagramaMdLinks.png)
+![Diagrama](./images/DiagramaMdLinks.png)
 
 
 ## 3. Guía de uso 📖
