@@ -5,20 +5,20 @@ const jsdom = require('jsdom');
 const { JSDOM } = jsdom;
 const fetch = require('node-fetch');
 
-// Verificar si la ruta es válida con el método de fs existsSync()
-// El método existsSync() devuelve un valor booleano.
+// Check if the path is valid with the fs existsSync() method.
+// The existsSync() method returns a Boolean value.
 
 const checkPath = (absolutePath) => {
     const path = fs.existsSync(absolutePath);
     if(path){
       return true;
     }else{
-      throw new Error("La ruta no existe");
+      throw new Error("The path does not exist");
     }
   };
 
-  // Verificar si la ruta es absoluta o relativa con el método isAbsolute.
-  // El método isAbsolute devuelve un valor booleano.
+  // Check if the path is absolute or relative with the isAbsolute method.
+  // Returns a Boolean value.
 
 const absoluteOrRelativePath = (myPath) => {
   const validatePath = path.isAbsolute(myPath);
@@ -30,31 +30,23 @@ const absoluteOrRelativePath = (myPath) => {
   }
 }
 
-// Verificar si la ruta es un directorio
+// Check if the path is a directory, read directory and files, check ext
 
 const pathIsDirectory = (myPath) => fs.statSync(myPath).isDirectory();
-
-// console.log(pathIsDirectory('C:\\Users\\asus\\Documents\\Laboratoria!\\DEV001-md-links\\OtroDirectorio'));
-
-// Si la ruta es un directorio entrar y leer archivos
 const readDirectory = (myPath) => fs.readdirSync(myPath,{ encoding: "utf-8"});
-// console.log(readDirectory('C:\\Users\\asus\\Documents\\Laboratoria!\\DEV001-md-links\\OtroDirectorio'));
-
-// Si la ruta es un archivo verificar la extension para saber si es txt, md, png
 const readFile = (myPath) => fs.readFileSync(myPath,{ encoding: "utf-8"});
 const validateExtFile = (myPath) => path.extname(myPath);
 
-// Añadir archivos .md en un arreglo.
+// Add files .md in an array.
 const arrayOfMd = (absolutePath) => {
   let arrayMd = [];
   if(pathIsDirectory(absolutePath)) {
     readDirectory(absolutePath).forEach((file) => {
       let filePath = path.join(absolutePath, file);
       arrayMd = [...arrayMd, ...arrayOfMd(filePath)]; 
-      // Cuando una función se llama a si misma, se denomina paso de recursividad
+      // When a function calls itself, it is called recursion
     });
   }else{
-    // Cuando no es un directorio, sino un archivo .md, solo leemos el archivo md y lo añadimo a un array
     const ext = validateExtFile(absolutePath);
     if(ext === ".md"){
         arrayMd.push(absolutePath);
@@ -62,9 +54,8 @@ const arrayOfMd = (absolutePath) => {
   }
   return arrayMd;
 };
-// console.log(arrayOfMd('C:\\Users\\asus\\Documents\\Laboratoria!\\DEV001-md-links\\OtroDirectorio'));
 
-// tenemos que convertir el archivo a String.
+// convert file to string.
 const readFileMd = (absolutePath) => {
     return new Promise((resolve) => {
       const noString = fs.readFileSync(absolutePath, "utf-8");
@@ -78,16 +69,14 @@ const readFileMd = (absolutePath) => {
     });
   };
 
-// console.log(readFileMd('C:\\Users\\asus\\Documents\\Laboratoria!\\DEV001-md-links\\OtroDirectorio\\examples\\example.md'));
-  
-// Expresiones regulares para la lectura de links con fetch:
 
+// Regular expressions for reading links with fetch
 const getLinksMd = (myPath) => {
     let linksArray = [];
     arrayOfMd(myPath).forEach((file) => {
     const urlLinks = /\[([^\[]+)\](\(.*\))/gm;
 
-        let linksOfFiles = readFile(file).match(urlLinks);  // El método match() devuelve todas las ocurrencias de una expresión regular dentro de una cadena.
+        let linksOfFiles = readFile(file).match(urlLinks);
         if (linksOfFiles != null ) {
             let render = md().render(readFile(file));
             let readHtml = new JSDOM(render);
@@ -105,9 +94,6 @@ const getLinksMd = (myPath) => {
     return linksArray;
 }
 
-// console.log(getLinksMd('C:\\Users\\asus\\Documents\\Laboratoria!\\DEV001-md-links\\OtroDirectorio\\examples\\example.md'))
-
-// Validating links
 const getStatus = (linksArray) => {
     let promises = linksArray.map((link) => fetch(link.href)
     .then((response) => {

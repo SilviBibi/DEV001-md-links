@@ -8,18 +8,14 @@ const {
   
   const mdLinks = (path, options = {}) => {
     return new Promise((resolve, reject) => {
-      // Check if path exists
       if(checkPath(path)){
-        // Turn path into absolute
         const absolutePath = absoluteOrRelativePath(path)
-        // Check if path is a directory, read directory/or file, and get .md files
         const mdFilesArr = arrayOfMd(absolutePath);
         if(mdFilesArr.length >= 1){
-        // Read files and extract links
         const linksArr = getLinksMd(absolutePath);
           if(linksArr.length >= 1 && options.validate) {
             resolve((getStatus(linksArr)))
-          } else if (linksArr.length >= 1 && options.validate != true){
+          } if (linksArr.length >= 1 && options.validate != true){
             resolve((getLinksMd(absolutePath)))
           } else {
             reject(new Error ('No links found.'))

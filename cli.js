@@ -3,10 +3,10 @@ const { mdLinks } = require('./mdLinks')
 const { help } = require('./welcome.js');
 const chalk = require('chalk');
 
-const completePath = process.argv[1]; // Ruta de donde utilizo node
-const enteredPath = process.argv[2]; // Desde la ruta enviada
-const validateOrStats = process.argv[3]; //--validate o --stats
-const validateStats = process.argv[4];//--validate--stats
+const completePath = process.argv[1];
+const enteredPath = process.argv[2];
+const validateOrStats = process.argv[3];
+const validateStats = process.argv[4];
 
 const uniqueLinks = (data) => {
     const setUnique = new Set(data.map((link) => link.href)).size;
@@ -33,7 +33,6 @@ const validateOnly = (enteredPath, validateOrStats, validateStats) => (enteredPa
 const statsOnly = (enteredPath, validateOrStats, validateStats) => (enteredPath !== undefined && ((validateOrStats === '--stats' && validateStats === undefined) || (validateStats === '--stats' && validateOrStats === undefined)));
 const validateAndStats = (enteredPath, validateOrStats, validateStats) => (enteredPath !== undefined && ((validateOrStats === '--stats' && validateStats === '--validate') || (validateOrStats === '--validate' && validateStats === '--stats')));
 
-// Conditionals to check if the user entered a valid command and execute the function mdLinks
 if (mdLinksOnly(completePath, enteredPath, validateOrStats, validateStats)) {
    return console.log('Please enter a valid option, if you need help you can use the command "md-links --help"');
 } else if (enteredPath === '--help') {
