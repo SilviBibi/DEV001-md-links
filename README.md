@@ -25,7 +25,7 @@ npm install SilviBibi/DEV001-md-links
 
 Como punto de partida para la ejecución de este proyecto, yo planifiqué mis tareas y objetivos, es por ello que hice un diagrama de flujo para plasmar lo que queria lograr y de que manera podía hacerlo.
 
-[Diagrama de flujo]](./images/diagrama)
+![Diagrama de Flujo](./images/DiagramaMdLinks.png)
 
 
 ## 3. Guía de uso 📖
