@@ -1,68 +1,72 @@
 #  Markdown Links 🔗
 
-## Índice
+## Index
 
-* [1. Sobre la librería e instalación:](#1-Sobre-la-librería-e-Instalación)
-* [2. Proceso de desarrollo:](#2-Proceso-de-desarrollo)
-* [3. Guía de uso:](#3-Guía-de-uso)
-* [4. Opciones:](#4-Opciones)
+* [1. About the library and installation:](#1-About-the-library-and-installation)
+* [2. Development process:](#2-Development-process)
+* [3.User guide:](#3-User-guide)
+* [4. Options:](#4-Options)
 
  
 ***
 
 
-## 1. Sobre la librería e Instalación 💻
-Es una libreria ejecutable con node.js, capaz de leer y analizar archivos en formato Markdown, para verificar los links que contengan y reportar algunas estadísticas. 
+## 1. About the library and installation 💻
+It is an executable library with node.js, capable of reading and analyzing files in Markdown format, to verify the links they contain and report some statistics. 
 
-#### Instalación
-Puedes hacer la instalación por `npm`:
+#### Installation
+You can do the installation by `npm`:
 
 ```sh
 npm install SilviBibi/DEV001-md-links
 ```
 
-  ## 2. Proceso de desarrollo:
+  ## 2. Development process:
 
-Como punto de partida para la ejecución de este proyecto, yo planifiqué mis tareas y objetivos, es por ello que hice un diagrama de flujo para plasmar lo que queria lograr y de que manera podía hacerlo.
+Before starting the execution of this project, I planned my tasks and objectives, that is why I made a flowchart to capture what I wanted to achieve and how I could do it.
 
-![Diagrama](./images/DiagramaMdLinks.png)
+![Diagram](./images/DiagramaMdLinks.png)
 
 
-## 3. Guía de uso 📖
-En tu terminal, puedes ejecutar "md-links" y agregar una ruta, verás en tu **consola o terminal**, la ruta del archivo, link y el texto que tiene el enlace. 
+## 3. User guide 📖
+In your terminal, you can run "md-links" and add a path, you will see in your **console or terminal**, the path of the file, link and the text that has the link. 
 <code> md-links < path > </code>
   
-* `href`: URL encontrada.
-* `text`: Texto que aparecía dentro del link (`<a>`).
-* `file`: Ruta del archivo donde se encontró el link.
-  
+* `href`: URL found.
+* `text`: Text that appeared inside the link (`<a>`).
+* `file`: Path of the file where the link was found.
 
-## 4. Opciones
+![pathOnly](./images/pathOnly.png)
+
+## 4. Options
   <code> --validate </code> <code> --stats </code> <code> --validate --stats </code> <code> --stats --validate </code> 
 
-### Validar
-#### --validate
-Si ingresas la opción <code> --validate </code> podrás ver el status de tus links
+### Validate
+If you enter the option <code> --validate </code> you will can see the status of your links.
  
-* `href`: URL encontrada.
-* `text`: Texto que aparecía dentro del link (`<a>`).
-* `file`: Ruta del archivo donde se encontró el link.
-* `status`: Código de respuesta HTTP.
-* `ok`: Mensaje `fail` en caso de fallo u `ok` en caso de éxito.
+* `href`: URL found.
+* `text`: Text that appeared inside the link (`<a>`).
+* `file`: Path of the file where the link was found.
+* `status`:  HTTP response code.
+* `ok`: Message 'fail' in case of failure or 'ok' in case of success.
 
-### Estadísticas
-#### --stats
-Si ingresas la opción <code> --stats </code> podrás ver estadísticas básicas sobre los links.
+![pathOnly](./images/--validate.png)
 
-### Estadísticas y validación
-#### --validate --stats o --stats --validate
-También se puedes ingresar <code> --validate --stats </code>  o <code> --stats --validate </code> para obtener estadísticas que necesiten de los resultados de la validación.
+#### --Stats
+If you enter the option <code> --stats </code> you will can see the basic statistics about links.
 
-### Ayuda
-#### --help
-Tambien puedes ingresar <code> md-links --help </code> para obtener ayuda con respecto a la forma de uso de ésta libreria.
-  
+![pathOnly](./images/--stats.png)
 
-   **Autor**
+#### --Validate --Stats o --Stats --Validate
+You can also enter <code> --validate --stats </code>  o <code> --stats --validate </code> to obtain statistics that require validation results.
+
+![pathOnly](./images/--validate--stats.png)
+
+#### --Help
+You can also enter <code> md-links --help </code> for help regarding how to use this library.
+
+![pathOnly](./images/--help.png)
+
+   **Author**
   [Silvia Falcón](https://github.com/SilviBibi/DEV001-md-links)
   
