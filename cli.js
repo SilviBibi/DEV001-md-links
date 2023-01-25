@@ -40,15 +40,21 @@ if (mdLinksOnly(completePath, enteredPath, validateOrStats, validateStats)) {
 }
 if (filePathOnly(enteredPath, validateOrStats, validateStats)) {
     mdLinks(enteredPath).then(data => {
-        data.forEach(link => console.log(link.href + ' ' + link.text));
-    });
+        data.forEach(link => {
+            console.log(chalk.underline.bold.magenta('href:') + (' ') + chalk.blue(link.href));
+            console.log(chalk.bold.magenta('text:') + (' ') + chalk.green(link.text));
+            console.log(chalk.bold.magenta('file:') + (' ') + chalk.white(enteredPath));
+    }
+    );
+});
 } else if (validateOnly(enteredPath, validateOrStats, validateStats)) {
     mdLinks(enteredPath, { validate: true }).then(data => {
         data.forEach(link => {
-                console.log(chalk.bgBlack(enteredPath))
-                console.log(chalk.magenta("href:" + link.href));
-                console.log(chalk.magenta("status:" + link.status));
-                console.log(chalk.magenta("text:" + link.text));
+                console.log(chalk.underline.bold.magenta('href:') + (' ') + chalk.blue(link.href));
+                console.log(chalk.bold.magenta('text:') + (' ') + chalk.green(link.text));
+                console.log(chalk.bold.magenta('file:') + (' ') + chalk.white(enteredPath));
+                console.log(chalk.bold.magenta('status:') + (' ') + chalk.yellow(link.status));
+                console.log(chalk.bold.magenta('message:') + (' ') + chalk.red(link.message));
         }
         );
     });
