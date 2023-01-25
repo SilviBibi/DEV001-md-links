@@ -50,22 +50,22 @@ If you enter the option <code> --validate </code> you will can see the status of
 * `status`:  HTTP response code.
 * `ok`: Message 'fail' in case of failure or 'ok' in case of success.
 
-![pathOnly](./images/--validate.png)
+![validate](./images/--validate.png)
 
 #### --Stats
 If you enter the option <code> --stats </code> you will can see the basic statistics about links.
 
-![pathOnly](./images/--stats.png)
+![stats](./images/--stats.png)
 
 #### --Validate --Stats o --Stats --Validate
 You can also enter <code> --validate --stats </code>  o <code> --stats --validate </code> to obtain statistics that require validation results.
 
-![pathOnly](./images/--validate--stats.png)
+![validateandstats](./images/--validate--stats.png)
 
 #### --Help
 You can also enter <code> md-links --help </code> for help regarding how to use this library.
 
-![pathOnly](./images/--help.png)
+![help](./images/--help.png)
 
    **Author**
   [Silvia Falcón](https://github.com/SilviBibi/DEV001-md-links)
